@@ -5,7 +5,6 @@ import 'package:shop/screens/product_detail_screen.dart';
 import '../providers/product.dart';
 
 class ProductItem extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -20,21 +19,26 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           backgroundColor: Colors.black87,
-          leading: IconButton(
-            icon: Icon(product.isFavorite ? Icons.favorite : Icons.favorite_border),
-            color: theme.canvasColor,
-            onPressed: () {
-              product.toggleFavoriteStatus();
-            },),
+          leading: Consumer<Product>(
+            builder: (ctx, product, child) => IconButton(
+              icon: Icon(
+                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
+              color: theme.canvasColor,
+              onPressed: () {
+                product.toggleFavoriteStatus();
+              },
+            ),
+          ),
           trailing: IconButton(
             icon: Icon(Icons.shopping_cart),
             color: theme.canvasColor,
-            onPressed: () {},),
+            onPressed: () {},
+          ),
         ),
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(
-                ProductDetailScreen.routeName, arguments: product.id);
+            Navigator.of(context).pushNamed(ProductDetailScreen.routeName,
+                arguments: product.id);
           },
           child: Image.network(
             product.imageUrl,
