@@ -6,6 +6,8 @@ import 'package:shop/screens/product_detail_screen.dart';
 import '../providers/product.dart';
 
 class ProductItem extends StatelessWidget {
+  const ProductItem({super.key});
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

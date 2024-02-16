@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/providers/cart.dart';
 import 'package:shop/screens/cart_screen.dart';
+import 'package:shop/widgets/app_drawer.dart';
 import 'package:shop/widgets/product_grid.dart';
 import '../widgets/badge.dart';
 
@@ -24,7 +25,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('MyShop'),
+        title: const Text('MyShop'),
         actions: [
           PopupMenuButton(
               onSelected: (FilterOptions selectedValue) {
@@ -63,6 +64,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
         ],
         backgroundColor: theme.primaryColor,
       ),
+      drawer: const AppDrawer(),
       body: ProductGrid(
         showFav: _showFavOnly,
       ),

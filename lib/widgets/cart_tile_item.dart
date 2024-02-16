@@ -39,11 +39,11 @@ class CartItemTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
                 child: Padding(
-                    padding: EdgeInsets.all(7),
+                    padding: const EdgeInsets.all(7),
                     child: FittedBox(child: Text('\$$price')))),
             title: Text(title),
             subtitle: Text('Total: \$${price * quantity}'),
